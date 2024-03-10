@@ -8,7 +8,8 @@ import searchImage from '../assets/target512.jpg'
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import model from '../assets/Sample_X2.json'
-
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -193,12 +194,20 @@ function AppCanvas(props) {
     { <Dialog
       open={open}
       onClose={handleClose}
-      fullWidth={true}
-      maxWidth={'md'} // Adjust based on your preference
-      style={{ height: '50vh' }} // Adjust the height to half of the viewport
+      fullWidth={false}
+      maxWidth={'xl'} // Adjust based on your preference
+      style={{ height: '70vh', margin: 0, padding: 0 }} // Adjust the height to half of the viewport
     >
-
-
+        <div className="dialogCloseButtonContainer" style={{ padding: 0, margin: 0 }}>
+        <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
+            </IconButton>
+            </div>
       <div ref={refPlaceHolder} className='JeelizVTOWidget'>
       <canvas ref={refCanvas} className='JeelizVTOWidgetCanvas'></canvas>
 
@@ -214,7 +223,7 @@ function AppCanvas(props) {
           Quit
         </button>
       </div>
-
+      
       <div ref={refChangeModel} className='JeelizVTOWidgetControls JeelizVTOWidgetChangeModelContainer'>
         {/* <button className='JeelizVTOWidgetButton' onClick={set_glassesModel.bind(this, 'rayban_aviator_or_vertFlash')}>Model 1</button>
         <button className='JeelizVTOWidgetButton' onClick={set_glassesModel.bind(this, 'rayban_round_cuivre_pinkBrownDegrade')}>Model 2</button> */}
@@ -243,9 +252,9 @@ function AppCanvas(props) {
       </div>
 
     </div>
-    <DialogActions>
+    {/* <DialogActions>
           <Button onClick={handleClose}>Close</Button>
-        </DialogActions>
+        </DialogActions> */}
     </Dialog>}
   </>
 
